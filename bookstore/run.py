@@ -1,13 +1,10 @@
 from fastapi import FastAPI
-
-
+from models.user import User
 
 
 app = FastAPI()
 
 
-@app.get("/hello")
-async def hello_world():
-    return {"Hello Fast API world!!!"}
-
-
+@app.post("/user")
+async def post_user(user: User):
+    return {"request body": user}

@@ -351,3 +351,6 @@ MigrationBackup/
 
 # My Personal Note About This course
 *.myNotes.txt
+
+# vscode config files
+*.vscode

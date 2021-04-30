@@ -4,3 +4,4 @@ ipython
 black
 #router
 pydantic
+python-multipart

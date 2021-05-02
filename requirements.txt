@@ -5,3 +5,6 @@ black
 #router
 pydantic
 python-multipart
+pyjwt
+passlib
+bcrypt

@@ -9,7 +9,6 @@ from starlette.responses import Response
 
 app_v1 = FastAPI(openapi_prefix="/v1")
 
-
 """
 -> With Standard Header
 @app_v1.post("/user")

@@ -1,13 +1,16 @@
-from fastapi import FastAPI, Body, Header, File
+from fastapi import FastAPI, Body, Header, File, Depends
 from models.user import User
 from models.author import Author
 from models.book import Book
 from starlette.status import HTTP_201_CREATED
 from starlette.responses import Response
+from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 
 # Versioning are done at subproxis.
 
 app_v1 = FastAPI(openapi_prefix="/v1")
+oauth_schema = OAuth2PasswordBearer(tokenUrl="/token")
+
 
 """
 -> With Standard Header
@@ -67,3 +70,13 @@ async def upload_user_photo(response: Response, profile_photo: bytes = File(...)
     response.headers["x-file-size"] = str(len(profile_photo))  # Set the custom heathers
     response.set_cookie(key="cookie-api", value="test")  # Setting cookies
     return {"file size": len(profile_photo)}
+
+
+# --------------------------------------------------------------------------------------------
+# Create a JWT Token for the user.
+# --------------------------------------------------------------------------------------------
+@app_v1.post("/token")
+async def login_for_access_token(
+    form_data: OAuth2PasswordRequestForm = Depends(),
+):  # This will be a multi-form request
+    pass

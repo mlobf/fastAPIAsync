@@ -4,7 +4,7 @@ ipython
 black
 #router
 pydantic
-python-multipart
+python-multipart==0.0.5
 pyjwt
 passlib
 bcrypt

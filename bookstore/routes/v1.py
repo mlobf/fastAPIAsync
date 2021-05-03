@@ -2,15 +2,15 @@ from fastapi import FastAPI, Body, Header, File, Depends
 from models.user import User
 from models.author import Author
 from models.book import Book
+from models.jwt_user import JWTUser
 from starlette.status import HTTP_201_CREATED
 from starlette.responses import Response
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 
-# Versioning are done at subproxis.
+# Versioning is made using subproxis.
 
 app_v1 = FastAPI(openapi_prefix="/v1")
 oauth_schema = OAuth2PasswordBearer(tokenUrl="/token")
-
 
 """
 -> With Standard Header

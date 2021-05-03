@@ -1,6 +1,9 @@
 from passlib.context import CryptContext
 from models.jwt_user import JWTUser
 
+
+
+
 pwd_context = CryptContext(schemes=["bcrypt"])
 jwt_user1 = {
     "username": "user1",
@@ -8,7 +11,7 @@ jwt_user1 = {
     "disabled": False,
     "role": "admin",
 }
-fake_jwt_user1 = JWTUser(**jwt_user1)
+# fake_jwt_user1 = JWTUser(**jwt_user1)
 
 
 def get_hashed_password(password):
@@ -24,7 +27,7 @@ def verify_password(plain_password, hashed_password):
 
 hashed = "$2b$12$KfVXIOtPV0lVjLmD1QEodO2BQpbMZu7G0KGUzMuIi.PzORF1hekYC"
 
-#print(verify_password("mysecret", hashed))
+# print(verify_password("mysecret", hashed))
 
 """
   Authenticate username password to give JWT Token.
@@ -34,7 +37,7 @@ hashed = "$2b$12$KfVXIOtPV0lVjLmD1QEodO2BQpbMZu7G0KGUzMuIi.PzORF1hekYC"
 def authenticate_user(username: str, password: str):
     pass
 
- 
+
 """
   Create Access JWT Token.
 """

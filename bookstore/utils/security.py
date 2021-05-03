@@ -2,8 +2,6 @@ from passlib.context import CryptContext
 from models.jwt_user import JWTUser
 
 
-
-
 pwd_context = CryptContext(schemes=["bcrypt"])
 jwt_user1 = {
     "username": "user1",
